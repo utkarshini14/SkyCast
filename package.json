@@ -1,0 +1,23 @@
+{
+  "name": "skycast",
+  "version": "1.0.0",
+  "description": "Ultimate Weather Companion!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarshini14/SkyCast.git"
+  },
+  "author": "Utkarshini Narayan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkarshini14/SkyCast/issues"
+  },
+  "homepage": "https://github.com/utkarshini14/SkyCast#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
