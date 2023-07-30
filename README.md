@@ -26,4 +26,4 @@ Start the project
 
 ## Preview
 
-![Alt text](<Screenshot 2023-07-30 175618.png>)
+![Screenshot 2023-07-30 175618](https://github.com/utkarshini14/SkyCast/assets/115221934/20759065-4ba5-48b1-af9c-715c6d7c211a)
