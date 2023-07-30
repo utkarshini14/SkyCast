@@ -24,3 +24,6 @@ Start the project
 -  ejs
 -  node-fetch
 
+## Preview
+
+![Alt text](<Screenshot 2023-07-30 175618.png>)
