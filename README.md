@@ -26,4 +26,7 @@ Start the project
 
 ## Preview
 
-![Screenshot 2023-07-30 175618](https://github.com/utkarshini14/SkyCast/assets/115221934/20759065-4ba5-48b1-af9c-715c6d7c211a)
+![ezgif com-video-to-gif](https://github.com/utkarshini14/SkyCast/assets/115221934/b503e63b-98a1-4ee8-8339-de4b27998995)
+
+
+
