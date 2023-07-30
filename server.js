@@ -5,23 +5,36 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 require("dotenv").config();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  let locDate = { temp: "Temp", desc: "Description", location: "Location", humidity: "Humidity ", feel: "Feel ", speed: "Speed" };
+    res.render("index", { locDate: locDate,});
 });
 
 app.post("/", async (req, res) => {
-  let location = await req.body.city;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.APIKEY}&units=metric`;
-  const response = await fetch.then((module) => module.default(url));
-  const weatherData = await response.json();
-  const temp = Math.floor(weatherData.main.temp)
-  const desc = weatherData.weather[0].description;
-  const icon = weatherData.weather[0].icon;
-  const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  res.write(`<h1>The Current Weather in ${location} is ${desc}</h1>`)
-  res.write(`<h1>The Current Temperature is ${temp} degree celsius</h1>`)
-  res.write(`<img src='${imageUrl}'>`)
+  try {
+      const location = await req.body.city;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.APIKEY}&units=metric`;
+      let response = await fetch.then((module) => module.default(url));
+      let data = await response.json();
+      let locDate = {};
+      locDate.temp = Math.round(data.main.temp);
+      locDate.desc = data.weather[0].description;
+      locDate.feel = data.main.feels_like;
+      locDate.humidity = data.main.humidity;
+      locDate.speed = data.wind.speed;
+      locDate.location = location;
+      console.log(locDate);
+      res.render("index", { locDate: locDate,});
+  } catch (err) {
+      console.log(err);
+      res.status(400).json({ data: 'not found!' })
+  }
 });
+
+
 const port = 3000;
 
 app.listen(port, () => {
